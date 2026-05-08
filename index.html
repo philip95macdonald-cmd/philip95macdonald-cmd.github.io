@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philip Macdonald — Marketing & Automation</title>
+<meta name="description" content="Philip Macdonald — Marketing-Profi mit Engineering-Skills. Marketing-Automation, AI-Integration, CRM, SEO.">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-hover: #1f262e;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #7ee2b8;
+    --link: #58a6ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+  }
+  header { margin-bottom: 56px; }
+  .name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 640px;
+  }
+  .tagline strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .intro {
+    margin: 32px 0 0;
+    font-size: 1.05rem;
+    color: var(--text);
+    max-width: 640px;
+  }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .card:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--link);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title svg { flex-shrink: 0; }
+  .card-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lang-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .lang-js { background: #f1e05a; }
+  .lang-py { background: #3572A5; }
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .contact-list a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .contact-list a:hover { border-color: var(--link); }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1 class="name">Philip Macdonald</h1>
+    <p class="tagline">
+      Marketing-Profi mit <strong>Engineering-Skills</strong>. Ich baue die Tools,
+      auf die ich als Marketer warten musste — von der Lead-Pipeline bis zum AI-Briefing.
+    </p>
+    <p class="intro">
+      Hintergrund in Marketing, CRM, PR und SEO — und die F&auml;higkeit, eigene Workflows
+      zu bauen statt nur Tools einzukaufen. Schwerpunkte: Marketing-Automation,
+      AI-Integration (Claude, n8n), Cloudflare Workers, Python &amp; JavaScript.
+    </p>
+  </header>
+
+  <section>
+    <h2>Stack</h2>
+    <div class="stack">
+      <span class="chip">JavaScript</span>
+      <span class="chip">Python</span>
+      <span class="chip">Cloudflare Workers</span>
+      <span class="chip">n8n</span>
+      <span class="chip">Claude API</span>
+      <span class="chip">Notion API</span>
+      <span class="chip">Google Search Console</span>
+      <span class="chip">Brevo</span>
+      <span class="chip">Mailchimp</span>
+      <span class="chip">HubSpot</span>
+      <span class="chip">Slack API</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projekte</h2>
+    <div class="grid">
+
+      <a href="https://github.com/philip95macdonald-cmd/ai-marketing-briefing" class="card">
+        <div class="card-title">
+          ai-marketing-briefing
+        </div>
+        <p class="card-desc">
+          Daily AI Briefing f&uuml;r Marketing-Manager. Zieht morgens Google Calendar
+          und Notion-Tasks, l&auml;sst Claude priorisieren, schickt das Briefing per Slack DM.
+        </p>
+        <div class="card-meta">
+          <span class="lang-dot lang-js"></span> JavaScript
+        </div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/content-seo-engine" class="card">
+        <div class="card-title">
+          content-seo-engine
+        </div>
+        <p class="card-desc">
+          AI Content Briefs, Blog-Post-SEO-Scorer und JSON-LD Schema-Generator.
+          F&uuml;r Content-Teams, die zwischen Brief und Publish nicht mehr zw&ouml;lf Tools brauchen.
+        </p>
+        <div class="card-meta">
+          <span class="lang-dot lang-js"></span> JavaScript
+        </div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/lead-pipeline" class="card">
+        <div class="card-title">
+          lead-pipeline
+        </div>
+        <p class="card-desc">
+          Form-zu-ESP Pipeline auf Cloudflare Workers. Ein Endpoint, drei
+          ESPs (Brevo, Mailchimp, HubSpot), saubere Validierung, kein Backend-Setup.
+        </p>
+        <div class="card-meta">
+          <span class="lang-dot lang-js"></span> JavaScript
+        </div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/ngo-stakeholder-stack" class="card">
+        <div class="card-title">
+          ngo-stakeholder-stack
+        </div>
+        <p class="card-desc">
+          Open-Source Python-Toolkit f&uuml;r NGO-Stakeholder-Kommunikation: Press-Crawler,
+          Politiker-Connector, Brevo-Sync, Topic-Monitor, Impact-Story-Builder.
+        </p>
+        <div class="card-meta">
+          <span class="lang-dot lang-py"></span> Python
+        </div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/seo-audit-toolkit" class="card">
+        <div class="card-title">
+          seo-audit-toolkit
+        </div>
+        <p class="card-desc">
+          On-Page SEO-Auditor plus Google Search Console Top-Queries-Report.
+          F&uuml;r Audits ohne 200&nbsp;&euro;/Monat-SaaS-Subscription.
+        </p>
+        <div class="card-meta">
+          <span class="lang-dot lang-js"></span> JavaScript
+        </div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/webhook-n8n-bridge" class="card">
+        <div class="card-title">
+          webhook-n8n-bridge
+        </div>
+        <p class="card-desc">
+          Cloudflare Worker, der signierte Webhooks verifiziert und an n8n weiterleitet.
+          Trennt Public-Endpoint von Self-Hosted n8n &mdash; sauberer und sicherer.
+        </p>
+        <div class="card-meta">
+          <span class="lang-dot lang-js"></span> JavaScript
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Kontakt</h2>
+    <div class="contact-list">
+      <a href="mailto:philip95macdonald@gmail.com">philip95macdonald@gmail.com</a>
+      <a href="https://github.com/philip95macdonald-cmd" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    Gebaut mit HTML, CSS und etwas Geduld. Gehostet auf GitHub Pages.
+  </footer>
+
+</div>
+</body>
+</html>
