@@ -3,6 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philip Macdonald — Marketing Engineer</title>
+<meta name="description" content="Philip Macdonald — Marketing-Profi mit Engineering-Skills. Marketing-Automation, AI-Integration, CRM, SEO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --surface: #121215;
+    --surface-2: #1a1a1f;
+    --border: #25252c;
+    --border-bright: #3a3a44;
+    --text: #f4f4f5;
+    --text-muted: #8a8a93;
+    --text-dim: #5a5a64;
+    --accent-1: #b4ff39;
+    --accent-2: #00d2ff;
+    --accent-3: #ff5e87;
+    --accent-warm: #ffaa3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  ::selection { background: var(--accent-1); color: var(--bg); }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    cursor: default;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 32px 120px;
+    overflow: hidden;
+  }
+  .mesh { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.55; mix-blend-mode: screen; }
+  .blob.b1 { width: 600px; height: 600px; background: var(--accent-1); top: -120px; left: -180px; animation: drift1 18s ease-in-out infinite alternate; }
+  .blob.b2 { width: 500px; height: 500px; background: var(--accent-2); top: 20%; right: -120px; animation: drift2 22s ease-in-out infinite alternate; }
+  .blob.b3 { width: 450px; height: 450px; background: var(--accent-3); bottom: -120px; left: 30%; animation: drift3 20s ease-in-out infinite alternate; }
+  @keyframes drift1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(120px, 80px) scale(1.15); } }
+  @keyframes drift2 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-100px, 140px) scale(0.9); } }
+  @keyframes drift3 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(80px, -120px) scale(1.2); } }
+  .grain { position: absolute; inset: 0; z-index: 1; opacity: 0.4; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>"); pointer-events: none; }
+
+  .container { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
+  .topnav { position: absolute; top: 32px; left: 32px; right: 32px; display: flex; justify-content: space-between; align-items: center; z-index: 10; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+  .topnav .logo { color: var(--text); font-weight: 500; }
+  .topnav .status { display: flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-1); box-shadow: 0 0 12px var(--accent-1); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-1); margin-bottom: 24px; opacity: 0; animation: rise 0.8s ease-out 0.2s forwards; }
+  .name { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(3.5rem, 12vw, 9.5rem); line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 32px; opacity: 0; animation: rise 1s ease-out 0.35s forwards; }
+  .name .accent { background: linear-gradient(120deg, var(--accent-1) 0%, var(--accent-2) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 500; }
+  .role-line { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 500; color: var(--text-muted); margin-bottom: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; opacity: 0; animation: rise 1s ease-out 0.55s forwards; }
+  .role-cycle { display: inline-block; color: var(--text); border-bottom: 2px solid var(--accent-1); padding-bottom: 2px; min-width: 280px; transition: opacity 0.3s; }
+  @media (max-width: 600px) { .role-cycle { min-width: auto; } }
+
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 24px; font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--text-muted); opacity: 0; animation: rise 1s ease-out 0.75s forwards; }
+  .hero-meta span::before { content: "→ "; color: var(--accent-1); }
+
+  .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim); z-index: 5; opacity: 0; animation: rise 1s ease-out 1s forwards; }
+  .scroll-indicator .line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--text-dim), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%, 100% { transform: scaleY(1); transform-origin: top; } 50% { transform: scaleY(0.4); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  section { padding: 120px 32px; position: relative; }
+  .section-head { display: flex; align-items: baseline; gap: 24px; margin-bottom: 64px; }
+  .section-num { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--accent-1); letter-spacing: 0.1em; }
+  .section-title { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .section-title em { font-style: italic; font-weight: 400; color: var(--text-muted); }
+
+  .about-text { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 400; line-height: 1.4; max-width: 900px; color: var(--text); }
+  .about-text strong { font-weight: 700; background: linear-gradient(120deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .about-text .muted { color: var(--text-muted); }
+
+  .stack-section { padding: 60px 0; overflow: hidden; }
+  .marquee { display: flex; gap: 16px; animation: marquee 40s linear infinite; width: max-content; }
+  .marquee:hover { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; font-family: "JetBrains Mono", monospace; font-size: 0.85rem; font-weight: 500; white-space: nowrap; transition: all 0.25s; }
+  .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-1); }
+  .chip:nth-child(3n)::before { background: var(--accent-2); }
+  .chip:nth-child(3n+1)::before { background: var(--accent-3); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  @media (max-width: 800px) { .projects-grid { grid-template-columns: 1fr; } }
+  .project { position: relative; display: block; background: var(--bg); padding: 48px 40px; transition: background 0.3s; overflow: hidden; }
+  .project::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(180, 255, 57, 0.08), transparent 40%); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .project:hover::before { opacity: 1; }
+  .project:hover { background: var(--surface); }
+  .project-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+  .project-num { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.1em; }
+  .project-arrow { width: 24px; height: 24px; border: 1px solid var(--border-bright); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-muted); }
+  .project:hover .project-arrow { background: var(--accent-1); color: var(--bg); border-color: var(--accent-1); transform: rotate(-45deg); }
+  .project-title { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.05; }
+  .project-desc { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; max-width: 500px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .project-tag { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; padding: 4px 10px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .contact { padding: 140px 32px 120px; text-align: center; position: relative; }
+  .contact-glow { position: absolute; width: 800px; height: 400px; background: radial-gradient(ellipse at center, rgba(180, 255, 57, 0.15), transparent 70%); top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 0; pointer-events: none; }
+  .contact-content { position: relative; z-index: 2; }
+  .contact-eyebrow { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-1); margin-bottom: 24px; }
+  .contact-headline { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .email-link { display: inline-block; font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 500; color: var(--text); padding: 16px 0; border-bottom: 2px solid var(--border-bright); transition: all 0.3s; letter-spacing: -0.02em; }
+  .email-link:hover { border-color: var(--accent-1); color: var(--accent-1); }
+  .contact-secondary { margin-top: 48px; display: flex; justify-content: center; gap: 32px; font-family: "JetBrains Mono", monospace; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .contact-secondary a { color: var(--text-muted); border-bottom: 1px solid transparent; padding-bottom: 4px; transition: all 0.2s; }
+  .contact-secondary a:hover { color: var(--text); border-color: var(--accent-1); }
+
+  footer { padding: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  @media (max-width: 600px) {
+    .topnav { font-size: 0.65rem; }
+    section { padding: 80px 24px; }
+    .hero { padding: 80px 24px 100px; }
+    .section-head { flex-direction: column; gap: 8px; align-items: flex-start; margin-bottom: 40px; }
+    .project { padding: 32px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="mesh">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  <div class="grain"></div>
+
+  <nav class="topnav">
+    <div class="logo">PM /// PORTFOLIO</div>
+    <div class="status"><span class="dot"></span> Open to work</div>
+  </nav>
+
+  <div class="container">
+    <div class="eyebrow">// Marketing × Engineering</div>
+    <h1 class="name">Philip<br><span class="accent">Macdonald.</span></h1>
+    <div class="role-line">
+      Ich arbeite als <span class="role-cycle" id="roleCycle">Marketing Engineer</span>
+    </div>
+    <div class="hero-meta">
+      <span>Berlin / Remote</span>
+      <span>6+ Public Repos</span>
+      <span>Marketing × Code</span>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-num">01 — About</div>
+      <h2 class="section-title">Marketer, <em>der den Code selbst schreibt.</em></h2>
+    </div>
+    <p class="about-text reveal">
+      Hintergrund in <strong>Marketing, CRM, PR und SEO</strong> &mdash;
+      und die F&auml;higkeit, eigene Workflows zu bauen statt nur Tools einzukaufen.
+      <span class="muted">Schwerpunkte: Marketing-Automation, AI-Integration mit Claude und n8n,
+      Cloudflare Workers, Python &amp; JavaScript. Ich baue die Tools, auf die ich als Marketer
+      warten musste &mdash; von der Lead-Pipeline bis zum AI-Briefing.</span>
+    </p>
+  </div>
+</section>
+
+<section class="stack-section">
+  <div class="marquee">
+    <span class="chip">JavaScript</span>
+    <span class="chip">Python</span>
+    <span class="chip">Cloudflare Workers</span>
+    <span class="chip">n8n</span>
+    <span class="chip">Claude API</span>
+    <span class="chip">Notion API</span>
+    <span class="chip">Google Search Console</span>
+    <span class="chip">Brevo</span>
+    <span class="chip">Mailchimp</span>
+    <span class="chip">HubSpot</span>
+    <span class="chip">Slack API</span>
+    <span class="chip">Schema.org</span>
+    <span class="chip">JavaScript</span>
+    <span class="chip">Python</span>
+    <span class="chip">Cloudflare Workers</span>
+    <span class="chip">n8n</span>
+    <span class="chip">Claude API</span>
+    <span class="chip">Notion API</span>
+    <span class="chip">Google Search Console</span>
+    <span class="chip">Brevo</span>
+    <span class="chip">Mailchimp</span>
+    <span class="chip">HubSpot</span>
+    <span class="chip">Slack API</span>
+    <span class="chip">Schema.org</span>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-num">02 — Projekte</div>
+      <h2 class="section-title">Sechs Tools, <em>die ich gebaut habe.</em></h2>
+    </div>
+
+    <div class="projects-grid reveal">
+
+      <a href="https://github.com/philip95macdonald-cmd/ai-marketing-briefing" class="project" target="_blank" rel="noopener">
+        <div class="project-head"><div class="project-num">01</div><div class="project-arrow">→</div></div>
+        <h3 class="project-title">ai-marketing-briefing</h3>
+        <p class="project-desc">Daily AI Briefing f&uuml;r Marketing-Manager. Zieht morgens Google Calendar und Notion-Tasks, l&auml;sst Claude priorisieren, schickt das Briefing per Slack DM.</p>
+        <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">Claude</span><span class="project-tag">Notion</span><span class="project-tag">Slack</span></div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/content-seo-engine" class="project" target="_blank" rel="noopener">
+        <div class="project-head"><div class="project-num">02</div><div class="project-arrow">→</div></div>
+        <h3 class="project-title">content-seo-engine</h3>
+        <p class="project-desc">AI Content Briefs, Blog-Post-SEO-Scorer und JSON-LD Schema-Generator. F&uuml;r Content-Teams, die zwischen Brief und Publish nicht mehr zw&ouml;lf Tools brauchen.</p>
+        <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">SEO</span><span class="project-tag">Schema.org</span></div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/lead-pipeline" class="project" target="_blank" rel="noopener">
+        <div class="project-head"><div class="project-num">03</div><div class="project-arrow">→</div></div>
+        <h3 class="project-title">lead-pipeline</h3>
+        <p class="project-desc">Form-zu-ESP Pipeline auf Cloudflare Workers. Ein Endpoint, drei ESPs (Brevo, Mailchimp, HubSpot), saubere Validierung, kein Backend-Setup.</p>
+        <div class="project-tags"><span class="project-tag">Cloudflare</span><span class="project-tag">Brevo</span><span class="project-tag">Mailchimp</span><span class="project-tag">HubSpot</span></div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/ngo-stakeholder-stack" class="project" target="_blank" rel="noopener">
+        <div class="project-head"><div class="project-num">04</div><div class="project-arrow">→</div></div>
+        <h3 class="project-title">ngo-stakeholder-stack</h3>
+        <p class="project-desc">Open-Source Python-Toolkit f&uuml;r NGO-Stakeholder-Kommunikation: Press-Crawler, Politiker-Connector, Brevo-Sync, Topic-Monitor, Impact-Story-Builder.</p>
+        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Open Source</span><span class="project-tag">PR</span></div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/seo-audit-toolkit" class="project" target="_blank" rel="noopener">
+        <div class="project-head"><div class="project-num">05</div><div class="project-arrow">→</div></div>
+        <h3 class="project-title">seo-audit-toolkit</h3>
+        <p class="project-desc">On-Page SEO-Auditor plus Google Search Console Top-Queries-Report. F&uuml;r Audits ohne 200&nbsp;&euro;/Monat-SaaS-Subscription.</p>
+        <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">SEO</span><span class="project-tag">GSC API</span></div>
+      </a>
+
+      <a href="https://github.com/philip95macdonald-cmd/webhook-n8n-bridge" class="project" target="_blank" rel="noopener">
+        <div class="project-head"><div class="project-num">06</div><div class="project-arrow">→</div></div>
+        <h3 class="project-title">webhook-n8n-bridge</h3>
+        <p class="project-desc">Cloudflare Worker, der signierte Webhooks verifiziert und an n8n weiterleitet. Trennt Public-Endpoint von Self-Hosted n8n &mdash; sauberer und sicherer.</p>
+        <div class="project-tags"><span class="project-tag">Cloudflare</span><span class="project-tag">n8n</span><span class="project-tag">Webhooks</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="contact-glow"></div>
+  <div class="contact-content">
+    <div class="contact-eyebrow reveal">// 03 — Lass uns reden</div>
+    <h2 class="contact-headline reveal">Auf der Suche nach jemandem, <em style="font-style:italic;font-weight:400;color:var(--text-muted)">der Marketing UND Code spricht?</em></h2>
+    <a href="mailto:philip95macdonald@gmail.com" class="email-link reveal">philip95macdonald@gmail.com →</a>
+    <div class="contact-secondary reveal">
+      <a href="https://github.com/philip95macdonald-cmd" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:philip95macdonald@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>&copy; 2026 Philip Macdonald</div>
+  <div>Built with HTML, CSS, JS &mdash; hosted on GitHub Pages</div>
+</footer>
+
+<script>
+  const roles = ["Marketing Engineer","Marketing AI Engineer","Marketing Manager","PR Manager","CRM Manager","SEO Engineer","Growth Operator"];
+  const el = document.getElementById("roleCycle");
+  let idx = 0;
+  setInterval(() => {
+    el.style.opacity = "0";
+    setTimeout(() => { idx = (idx + 1) % roles.length; el.textContent = roles[idx]; el.style.opacity = "1"; }, 250);
+  }, 2400);
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+
+  document.querySelectorAll(".project").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty("--mx", x + "%");
+      card.style.setProperty("--my", y + "%");
+    });
+  });
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Philip Macdonald — Marketing & Automation</title>
 <meta name="description" content="Philip Macdonald — Marketing-Profi mit Engineering-Skills. Marketing-Automation, AI-Integration, CRM, SEO.">
 <style>
